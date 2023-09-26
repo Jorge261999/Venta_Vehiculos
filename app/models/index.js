@@ -24,6 +24,9 @@ db.vehiculos = require("./vehiculo.model.js")(sequelize, Sequelize);
 db.compras = require("./compra.model.js")(sequelize, Sequelize);
 
 
-
+db.compras.belongsTo(db.clientes, { foreignKey: 'rut' });
+db.compras.belongsTo(db.vehiculos, { foreignKey: 'id_vehiculo' });
+db.vehiculos.belongsTo(db.mecanicos, { foreignKey: 'rut' });
+db.vehiculos.belongsTo(db.concesionarios, { foreignKey: 'id_concesionario' });
 
 module.exports = db;
