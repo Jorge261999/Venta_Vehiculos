@@ -20,7 +20,7 @@ exports.create = (req, res) => {
     Promise.all(promise)
         .then(result => {
             console.log(req.body.id_compra)
-            Boleta.create({
+            Compra.create({
                     id_compra: req.body.id_compra,
                     rut: result[0].rut,
                     id_vehiculo: result[1].id_vehiculo

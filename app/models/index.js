@@ -23,8 +23,7 @@ db.mecanicos = require("./mecanico.model.js")(sequelize, Sequelize);
 db.vehiculos = require("./vehiculo.model.js")(sequelize, Sequelize);
 db.compras = require("./compra.model.js")(sequelize, Sequelize);
 
-Compra.belongsTo(Cliente);
-Clinete.hasMany(Compra, { as: 'compras' });
+
 /*db.usuarios.hasMany(db.envios);
 db.envios.belongsTo(db.usuarios);
 db.usuarios.hasMany(db.solicituds);

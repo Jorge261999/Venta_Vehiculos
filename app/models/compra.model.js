@@ -6,5 +6,5 @@ module.exports = (sequelize, Sequelize) => {
         autoIncrement: true
       }
     });
-    return Boleta;
+    return Compra;
   };

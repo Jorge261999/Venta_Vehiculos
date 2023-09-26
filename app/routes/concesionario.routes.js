@@ -1,5 +1,5 @@
 module.exports = app => {
-    const estado = require("../controllers/concesionario.controller.js");
+    const concesionario = require("../controllers/concesionario.controller.js");
     var router = require("express").Router();
     
     router.post("/", concesionario.create);
