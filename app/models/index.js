@@ -24,15 +24,6 @@ db.vehiculos = require("./vehiculo.model.js")(sequelize, Sequelize);
 db.compras = require("./compra.model.js")(sequelize, Sequelize);
 
 
-/*db.usuarios.hasMany(db.envios);
-db.envios.belongsTo(db.usuarios);
-db.usuarios.hasMany(db.solicituds);
-db.solicituds.belongsTo(db.usuarios);
-db.envios.hasMany(db.paquetes);
-db.paquetes.belongsTo(db.envios);
-db.envios.hasOne(db.estados);
-db.estados.belongsTo(db.envios);
-db.envios.hasOne(db.solicitudes);
-db.solicituds.belongsTo(db.envios);*/
+
 
 module.exports = db;

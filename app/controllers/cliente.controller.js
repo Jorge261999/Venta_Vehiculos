@@ -16,7 +16,7 @@ exports.create = (req, res) => {
         });
         return;
     }
-    // Create a Usuario
+    // Create a Cliente
     const cliente= {
         rut: req.body.rut,
         nombre: req.body.nombre,
@@ -35,18 +35,24 @@ exports.create = (req, res) => {
         });
 };
 
-//cuantas compras tiene un cliente
-exports.findOne = (req, res) => {
-    const rut = req.params.rut;
-    Cliente.findByPk(rut, { include: 'compras' })
-        .then(data => {
-            if (data) {
-    console.log(cliente.nombre);
-    console.log(cliente.compras); // Aquí obtendrás la lista de compras de un cliente
-            }
-  });
 
-// Buscar un Cliente por su rut
+// Retornar todos los Clientes de la base de datos.
+exports.findAll = (req, res) => {
+    const nombre = req.query.nombre;
+    var condition = nombre ? { nombre: { [Op.like]: `%${nombre}%` } } : null;
+    Cliente.findAll({ where: condition })
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Error en la búsqueda"
+            });
+        });
+     
+};
+// Buscar un Usuario por su rut
 exports.findOne = (req, res) => {
     const rut = req.params.rut;
     Cliente.findByPk(rut)
@@ -107,7 +113,7 @@ exports.delete = (req, res) => {
         })
         .catch(err => {
             res.status(500).send({
-                message: "Error al eliminar el Usuario"
+                message: "Error al eliminar el Cliente"
             });
         });
 };
@@ -126,5 +132,4 @@ exports.deleteAll = (req, res) => {
                 err.message || "Error al eliminar a todos los Clientes."
             });
         });
-}
-}
+};
